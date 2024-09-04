@@ -7,6 +7,7 @@ import {
 import "./index.css";
 import Root from "./routes/root";
 import Informed from "./routes/Informed";
+import FormikForm from "./routes/Formik";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "informed",
     element: <Informed />,
+  },
+  {
+    path: "formik",
+    element: <FormikForm />,
   },
 ]);
 

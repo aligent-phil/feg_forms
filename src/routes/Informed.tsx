@@ -1,13 +1,18 @@
-import Nav from "../components/Nav";
-import React from "react";
+import { Form, Input, Debug, FormState } from 'informed';
 
-const Informed = () => {
+const InformedForm = () => {
+  const onSubmit = ({values}:FormState) => window.alert(`Hello ${values.firstName}`);
+
   return (
-    <div>
-      <Nav />
-      Informed form goes here
-    </div>
-  )
+    <Form onSubmit={onSubmit} initialValues={{ phone: '1234567899' }}>
+      <Input name="firstName" label="First Name" placeholder="Elon" required />
+      <Input name="lastName" label="Last Name" required="Last name required" />
+      <Input name="phone" label="Phone" formatter="+61 (###)-###-####" />
+      <Input name="email" label="Email" required />
+      <button type="submit">Submit</button>
+      <Debug valid pristine dirty values errors />
+    </Form>
+  );
 }
 
-export default Informed;
+export default InformedForm;
